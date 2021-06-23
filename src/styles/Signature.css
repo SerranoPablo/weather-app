@@ -1,0 +1,14 @@
+.signature{
+ font-weight: 100;
+ font-style:italic;
+ position: fixed;
+ bottom: 10px;
+}
+.signature__link {
+ text-decoration: none;
+ color: #FAFAFA;
+}
+
+.signature__link:hover {
+ color: #0066FF;
+}
