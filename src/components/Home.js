@@ -16,7 +16,7 @@ function Home() {
 
   const fetchCity = (city) => {
     var status;
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=87b24abe6b98eb052e073da0119f37ab&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=87b24abe6b98eb052e073da0119f37ab&units=metric`)
       .then(res => {
         status = res.status
         return res;
