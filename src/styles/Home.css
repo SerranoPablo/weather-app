@@ -18,8 +18,12 @@ input, textarea, select, a, button { outline: none; }
 }
 .home__current{
  margin-top: 20px;
+ margin-bottom: 100px;
  display: flex;
  flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: center;
+
 
 }
 .home__addTask{

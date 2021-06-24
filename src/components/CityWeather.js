@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import '../styles/CityWeather.css';
 import CloseIcon from '@material-ui/icons/Close';
+import Image from './Image.js';
 
 
-function CityWeather({ city, temp, text, deleteCity }) {
+function CityWeather({ city, temperature, description, icon, deleteCity }) {
  const [cross, setCross] = useState(true);
 
  return (
@@ -16,8 +17,9 @@ function CityWeather({ city, temp, text, deleteCity }) {
     {cross ? <CloseIcon /> : <CloseIcon style={{ color: '#B53737' }} />}
    </div>
    <h1>{city}</h1>
-   <h4>{temp}ºC</h4>
-   <t>{text}</t>
+   <Image className="cityweather__image" icon={icon} />
+   <h4>{temperature}ºC</h4>
+   <t>{description}</t>
 
   </div>
  )
