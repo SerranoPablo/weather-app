@@ -26,19 +26,23 @@ function Home() {
       .then(
         (res) => {
           if (status === 200) {
-            console.log(res);
-            setCities(oldCities => [...oldCities, {
-              city: res.name,
-              temperature: res.main.temp,
-              description: res.weather[0].main,
-              icon: res.weather[0].icon
-            }]);
+            if (!isCityAdded(res.name)) {
+
+              setCities(oldCities => [{
+                city: res.name,
+                temperature: res.main.temp,
+                description: res.weather[0].main,
+                icon: res.weather[0].icon
+              }, ...oldCities]);
+            }
           } else {
-            alert("City not found");
+            alert(city + " not recognized as city");
           }
         })
   }
-
+  const isCityAdded = (city) => {
+    return cities.find((x) => (x.city) === city)
+  }
   const addCity = (newText = text) => {
     if (newText != '' && !cities.find((x) => (x.city).toUpperCase() === text.toUpperCase())) {
       fetchCity(newText);
@@ -72,6 +76,7 @@ function Home() {
       <div className="home__addTask">
         <input
           className="home__input"
+          placeholder="Type city"
           onChange={(event) => setText(event.target.value)}
           value={text}
           onKeyDown={handleEnter}
